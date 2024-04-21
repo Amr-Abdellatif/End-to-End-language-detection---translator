@@ -185,6 +185,4 @@ decoder.load_state_dict(torch.load(decoder_weight_path_ar_en))
 def evaluateSpecificSentence_ara_eng(encoder, decoder, sentence, input_lang, output_lang):
     output_words, _ = evaluate(encoder, decoder, sentence, input_lang, output_lang)
     output_sentence = ' '.join(output_words)
-    return output_sentence
-    
-
+    return output_sentence 
