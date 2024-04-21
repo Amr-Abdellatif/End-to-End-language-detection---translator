@@ -19,15 +19,19 @@ This project includes the development of two API endpoints and the training of t
 
 ## Test cases for translation model:
 
-> 'تقول انك تتعمد اخفاء مظهرك الحسن' -> 'you are saying you intentionally hide your good looks <EOS>'
+1. 'تقول انك تتعمد اخفاء مظهرك الحسن'
+> 'you are saying you intentionally hide your good looks <EOS>'
 
-2. 'i didnt see the need for it' -> "لا ارى لذلك حاجة <EOS>"
+2. 'i didnt see the need for it'
+> "لا ارى لذلك حاجة <EOS>"
 
 3. ?!!!!!!? -> this should return unknown
 
-4. 'i read his book' -> "انا اقرا كتابه <EOS>"
+4. 'i read his book' 
+> "انا اقرا كتابه <EOS>"
 
-5. 'im sure that she will come back soon' -> "انا متاكد من انها ستعود قريبا <EOS>"
+5. 'im sure that she will come back soon' 
+> "انا متاكد من انها ستعود قريبا <EOS>"
 
 ps : you can find more test cases at the end of this repo i've evaluated after the training 
 
