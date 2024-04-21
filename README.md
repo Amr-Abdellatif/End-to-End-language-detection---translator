@@ -16,7 +16,7 @@ https://github.com/Amr-Abdellatif/End-to-End-language-detection---translator/ass
 
 3. Open browser and navigate to the follwoing localhost for swagger ui `http://127.0.0.1:8080/docs`
 
-4. For language detection model you must send data the model was trained on and must be whole words
+4. For language detection model you must send data the model was trained on and must be whole words .. the reason for that is taht the vocabulary the model was trained on is what the model saw, anything else it will not recognize
 
 5. for language translation model i'll pass some sentences i trained the model on as i didnt train it on all the pairs ex : 'انا لا اشعر بالعطش'  - 'i didnt see the need for it'
 
