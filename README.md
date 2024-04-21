@@ -20,7 +20,7 @@ https://github.com/Amr-Abdellatif/End-to-End-language-detection---translator/ass
 
 5. for language translation model i'll pass some sentences i trained the model on as i didnt train it on all the pairs
 
-6. if you try to pass any words that are not in the vocab of the model it would return key-error .. again this can be further trained on the whole dataset and results do improve.
+6. if you try to pass any words that are not in the vocab of the model it would return key-error, also the two models related to language translation doesn't have the same vocabulary so don't expect for one sentence to be translated on both languages .. again this can be further trained on the whole dataset and results do improve.
 
 ## Test cases for translation model:
 
