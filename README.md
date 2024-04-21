@@ -1,0 +1,1 @@
+# This is a world level translator that translates from english to arabic and vice versa 

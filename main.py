@@ -1,0 +1,61 @@
+from fastapi import FastAPI
+from pydantic import BaseModel
+from language_detection import *
+import time
+from translation_utils_eng_ara import *
+from translation_utils_ara_eng import *
+from language_checker import detect_language
+
+app = FastAPI()
+
+
+# Define response body for translation endpoint
+class TranslationResponse(BaseModel):
+    original_sentence: str # Add this line
+    translated_text: str
+    processing_time: float
+
+# Define response body
+class PredictionResponse(BaseModel):
+    predicted_language: str
+    processing_time: float  # Add processing time field
+
+
+model, cv, le = load_model_and_vectorizer(language_detection_path)
+
+
+@app.get("/")
+async def home():
+    return {'Home': 'Hello, World!'}
+
+
+# Define endpoint to predict language
+@app.post("/predict_language/", response_model=PredictionResponse)
+async def predict_language(Sentence: str):
+    start_time = time.time()  # Record start time
+    # Predict the language
+    x = cv.transform([Sentence.text]).toarray()
+    predicted_language_id = model.predict(x)[0]
+    predicted_language = le.inverse_transform([predicted_language_id])[0]
+    end_time = time.time()  # Record end time
+    processing_time = end_time - start_time  # Calculate processing time
+    print(f"Request took {processing_time} seconds.")
+    return {"predicted_language": predicted_language, "processing_time": processing_time}  # Include processing time in the response body
+
+
+@app.post("/translate/", response_model=TranslationResponse)
+async def translate_text(Sentence_2: str):
+    start_time = time.time()
+    language_detector = detect_language(Sentence_2)
+
+    if language_detector == "Arabic":
+        print('arabic sentence')
+        translated_text = evaluateSpecificSentence_ara_eng(encoder, decoder, Sentence_2, input_lang, output_lang)
+    else:
+        print('english sentence')
+        translated_text = evaluate_specific_sentence_eng_ara(encoder1, decoder1, Sentence_2, input_lang1, output_lang1)
+    
+    end_time = time.time()
+    processing_time = end_time - start_time
+    return {"original_sentence": Sentence_2, "translated_text": translated_text, "processing_time": processing_time}
+
