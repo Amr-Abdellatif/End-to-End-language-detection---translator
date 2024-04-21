@@ -50,10 +50,8 @@ async def translate_text(Sentence_2: str):
     language_detector = detect_language(Sentence_2)
 
     if language_detector == "Arabic":
-        print('arabic sentence')
         translated_text = evaluateSpecificSentence_ara_eng(encoder, decoder, Sentence_2, input_lang, output_lang)
     else:
-        print('english sentence')
         translated_text = evaluate_specific_sentence_eng_ara(encoder1, decoder1, Sentence_2, input_lang1, output_lang1)
     
     end_time = time.time()
