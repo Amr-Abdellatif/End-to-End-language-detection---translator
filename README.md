@@ -19,7 +19,7 @@ This project includes the development of two API endpoints and the training of t
 
 ## Test cases for translation model:
 
-1. 'تقول انك تتعمد اخفاء مظهرك الحسن' -> 'you are saying you intentionally hide your good looks <EOS>'
+> 'تقول انك تتعمد اخفاء مظهرك الحسن' -> 'you are saying you intentionally hide your good looks <EOS>'
 
 2. 'i didnt see the need for it' -> "لا ارى لذلك حاجة <EOS>"
 
