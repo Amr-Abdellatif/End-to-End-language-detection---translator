@@ -5,6 +5,7 @@ import time
 from translation_utils_eng_ara import *
 from translation_utils_ara_eng import *
 from language_checker import detect_language
+import uvicorn
 
 app = FastAPI()
 
@@ -34,7 +35,7 @@ async def home():
 async def predict_language(Sentence: str):
     start_time = time.time()  # Record start time
     # Predict the language
-    x = cv.transform([Sentence.text]).toarray()
+    x = cv.transform([Sentence]).toarray()
     predicted_language_id = model.predict(x)[0]
     predicted_language = le.inverse_transform([predicted_language_id])[0]
     end_time = time.time()  # Record end time
@@ -59,3 +60,6 @@ async def translate_text(Sentence_2: str):
     processing_time = end_time - start_time
     return {"original_sentence": Sentence_2, "translated_text": translated_text, "processing_time": processing_time}
 
+# Run the server
+if __name__ == "__main__":
+    uvicorn.run(app, host="127.0.0.1", port=8080)
