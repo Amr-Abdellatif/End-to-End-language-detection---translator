@@ -2,6 +2,9 @@
 
 This project includes the development of two API endpoints and the training of three models from scratch for language detection and translation.
 
+https://github.com/Amr-Abdellatif/End-to-End-language-detection---translator/assets/92921252/6a6465d3-e35f-4e6f-b7e3-2126d0fa0b93
+
+
 ## Usage
 
 1. `pip install -r requirements.txt`
