@@ -65,6 +65,9 @@ The models were trained on word-level data, while character-level models could p
 
 The language detection model was trained in approximately 3 hours, while the translation models took longer due to the complexity of the task and the use of RNNs with Attention. The translation models were trained on a subset of data with filtered language pairs based on a specific criteria to choose sentences that starts with like "This", "هذه".
 
+The next picture is the normalized confusion matrix from the language detection model training, more details can be found in the training notebooks folder
+![Alt text](training_notebooks/language_detection/Capture.JPG)
+
 ## Conclusion
 
 The language detection and translation models perform well on the subset of data used, but further training and resources would be required for generalization.
