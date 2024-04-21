@@ -5,16 +5,21 @@ This project includes the development of two API endpoints and the training of t
 ## Usage
 
 1. `pip install -r requirements.txt`
+    ps : if you face a problem with torch probably you need to install the torch from their website according to your device in my case it was 
 
 2. Run `main.py` this will run uvicorn server with the endpoints
 
-3. Open browser and navigate to the follwoing localhost `http://127.0.0.1:8080/docs`
+3. Open browser and navigate to the follwoing localhost for swagger ui `http://127.0.0.1:8080/docs`
 
 4. For language detection model you must send data the model was trained on and must be whole words
 
 5. for language translation model i'll pass some sentences i trained the model on as i didnt train it on all the pairs ex : 'انا لا اشعر بالعطش'  - 'i didnt see the need for it'
 
 6. if you try to pass any words that are not in the vocab of the model it would return key-error .. again this can be further trained on the whole dataset and results do improve.
+
+## Test cases for translation model:
+1. 'انا لا اشعر بالعطش' 
+2. 'i didnt see the need for it'
 
 
 ## Project structure 
