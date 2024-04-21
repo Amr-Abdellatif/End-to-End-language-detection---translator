@@ -5,7 +5,7 @@ This project includes the development of two API endpoints and the training of t
 ## Usage
 
 1. `pip install -r requirements.txt`
-    ps : if you face a problem with torch probably you need to install the torch from their website according to your device in my case it was 
+    ps : if you face a problem with torch probably you need to install the torch from their website according to your device in my case it was the pip with gpu installation 
 
 2. Run `main.py` this will run uvicorn server with the endpoints
 
@@ -37,9 +37,9 @@ ps : you can find more test cases at the end of this repo i've evaluated after t
     1. language detection model
     2. language translation models -> includes two models one for each language path: ara->eng / eng->ara
 2. config is for paths and other configuration for the whole project
-3. i included the training noteooks if you want to take a look at what i did
+3. I included the training noteooks if you want to take a look at what i did
 4. model translation architecture contains the architecture of the translation model
-5. i made two utils for translation one for English - Arabic translation and one for Arabic - English translation 
+5. i made two utils for translation one for English - Arabic translation and one for Arabic - English translation because vocabularies are different
 6. data is included also in case you want to take a look at it.
 
 ## Language Detection Model
@@ -48,13 +48,13 @@ The language detection model is a word-level model that achieved an accuracy of 
 
 ## Language Translation Model
 
-The language translation model is also a word-level model that uses the PyTorch deep learning framework and utilized Sequence to Sequence Network and Attention. It includes two models for translation between Arabic and English, with evaluation based on negative log-likelihood and BLEU score. The API endpoint checks the language and passes the sentence to the appropriate model.
+The language translation model is also a word-level model that uses the PyTorch deep learning framework and utilized Sequence to Sequence Network and Attention. It includes two models for translation between Arabic to English and English to Arabic, with training loss based on negative log-likelihood and BLEU score for evaluation. The API endpoint checks the language and passes the sentence to the appropriate model.
 
-The models were trained on word-level data, and while character-level models could perform better with word-level understanding, they would require more time and resources.
+The models were trained on word-level data, while character-level models could perform better with word-level understanding, they would require more training time and resources.
 
 ## Training Details
 
-The language detection model was trained in approximately 3 hours, while the translation models took longer due to the complexity of the task and the use of RNNs with Attention. The translation models were trained on a subset of data with filtered language pairs based on a specific criteria.
+The language detection model was trained in approximately 3 hours, while the translation models took longer due to the complexity of the task and the use of RNNs with Attention. The translation models were trained on a subset of data with filtered language pairs based on a specific criteria to choose sentences that starts with like "This", "هذه".
 
 ## Conclusion
 
