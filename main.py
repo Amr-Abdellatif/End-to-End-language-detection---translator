@@ -12,7 +12,7 @@ app = FastAPI()
 
 # Define response body for translation endpoint
 class TranslationResponse(BaseModel):
-    original_sentence: str # Add this line
+    original_sentence: str 
     translated_text: str
     processing_time: float
 
@@ -22,7 +22,7 @@ class PredictionResponse(BaseModel):
     processing_time: float  # Add processing time field
 
 
-model, cv, le = load_model_and_vectorizer(language_detection_path)
+model, cv, le = load_model_and_vectorizer(language_detection_path) # loading language detection model
 
 
 @app.get("/")
@@ -37,7 +37,7 @@ async def predict_language(Sentence: str):
     # Predict the language
     x = cv.transform([Sentence]).toarray()
     predicted_language_id = model.predict(x)[0]
-    predicted_language = le.inverse_transform([predicted_language_id])[0]
+    predicted_language = le.inverse_transform([predicted_language_id])[0] # return actual value
     end_time = time.time()  # Record end time
     processing_time = end_time - start_time  # Calculate processing time
     print(f"Request took {processing_time} seconds.")
