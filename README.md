@@ -5,7 +5,7 @@ This project includes the development of two API endpoints and the training of t
 ## Usage
 
 1. `pip install -r requirements.txt`
-    ps : if you face a problem with torch probably you need to install the torch from their website according to your device in my case it was the pip with gpu installation 
+    ps : if you face a problem with torch probably you need to install the torch from their website according to your device in my case it was the pip with gpu installation 'https://pytorch.org/get-started/locally/'
 
 2. Run `main.py` this will run uvicorn server with the endpoints
 
