@@ -1,7 +1,3 @@
-import random
-from io import open
-import unicodedata
-import random
 import csv
 import unicodedata
 import regex  
@@ -67,7 +63,7 @@ def normalizeArabic(text):
 
 
 def readLangs(lang1, lang2, reverse=True):
-    print("Reading lines...")
+    print("preparing vocab ...")
 
     # Open the CSV file
     with open(translation_data, newline='', encoding='utf-8') as csvfile:
@@ -84,9 +80,7 @@ def readLangs(lang1, lang2, reverse=True):
     if reverse:
         pairs = [list(reversed(p)) for p in pairs]
         input_lang = Lang(lang2)
-        # print(input_lang)
         output_lang = Lang(lang1)
-        # print(output_lang)
     else:
         input_lang = Lang(lang1)
         output_lang = Lang(lang2)

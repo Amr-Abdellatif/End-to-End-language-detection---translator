@@ -45,18 +45,21 @@ async def predict_language(Sentence: str):
 
 
 @app.post("/translate/", response_model=TranslationResponse)
-async def translate_text(Sentence_2: str):
+async def translate_text(Sentence: str):
     start_time = time.time()
-    language_detector = detect_language(Sentence_2)
+    
+    language_detector = detect_language(Sentence)
 
     if language_detector == "Arabic":
-        translated_text = evaluateSpecificSentence_ara_eng(encoder, decoder, Sentence_2, input_lang, output_lang)
+        translated_text = evaluateSpecificSentence_ara_eng(encoder, decoder, Sentence, input_lang, output_lang)
+    elif language_detector == "English":
+        translated_text = evaluate_specific_sentence_eng_ara(encoder1, decoder1, Sentence, input_lang1, output_lang1)
     else:
-        translated_text = evaluate_specific_sentence_eng_ara(encoder1, decoder1, Sentence_2, input_lang1, output_lang1)
-    
+        translated_text = "Unknown language"
+
     end_time = time.time()
     processing_time = end_time - start_time
-    return {"original_sentence": Sentence_2, "translated_text": translated_text, "processing_time": processing_time}
+    return {"original_sentence": Sentence, "translated_text": translated_text, "processing_time": processing_time}
 
 # Run the server
 if __name__ == "__main__":

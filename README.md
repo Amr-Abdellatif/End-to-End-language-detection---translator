@@ -18,9 +18,18 @@ This project includes the development of two API endpoints and the training of t
 6. if you try to pass any words that are not in the vocab of the model it would return key-error .. again this can be further trained on the whole dataset and results do improve.
 
 ## Test cases for translation model:
-1. 'انا لا اشعر بالعطش' 
-2. 'i didnt see the need for it'
 
+1. 'تقول انك تتعمد اخفاء مظهرك الحسن' -> 'you are saying you intentionally hide your good looks <EOS>'
+
+2. 'i didnt see the need for it' -> "لا ارى لذلك حاجة <EOS>"
+
+3. ?!!!!!!? -> this should return unknown
+
+4. 'i read his book' -> "انا اقرا كتابه <EOS>"
+
+5. 'im sure that she will come back soon' -> "انا متاكد من انها ستعود قريبا <EOS>"
+
+ps : you can find more test cases at the end of this repo i've evaluated after the training 
 
 ## Project structure 
 
@@ -50,3 +59,54 @@ The language detection model was trained in approximately 3 hours, while the tra
 ## Conclusion
 
 The language detection and translation models perform well on the subset of data used, but further training and resources would be required for generalization.
+
+
+
+### Some more test cases from the translator models :
+
+### English -> Arabic
+> i dont think tom would want to do that
+< لا اظنن توم يريد فعل ذلك <EOS>
+
+> i read his book
+< انا اقرا كتابه على الاطلاق <EOS>
+
+> im sure that she will come back soon
+< انا متاكد من انها ستعود قريبا <EOS>
+
+
+> im really hungry
+< انا جايع جدا في الصباح <EOS>
+
+> i cant see anything
+< لا استطيع ابتكار ارى <EOS>
+
+
+> i dont know when hell be here
+< لا اعرف متى سيكون هنا <EOS>
+----------------------------------------------------------------
+### Arabic -> English
+
+> حظه يسبق ذكاءه
+< he is more lucky than clever <EOS>
+
+> انك لست طالبا
+< you are not a student <EOS>
+
+> تقول انك تتعمد اخفاء مظهرك الحسن
+< you are saying you intentionally hide your good looks <EOS>
+
+> انه قلق بسبب مرض والده
+< he is concerned about his fathers illness <EOS>
+
+> انت امي
+< you are my mother <EOS>
+
+> تحبني كل عايلتي
+< i am loved by all my family <EOS>
+
+> انا من الاكوادور
+< i am from ecuador <EOS>
+
+> هو رجل حكمة
+< he is a man of wit <EOS>

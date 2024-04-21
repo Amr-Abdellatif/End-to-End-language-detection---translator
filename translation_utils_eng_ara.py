@@ -1,7 +1,4 @@
-import random
 from io import open
-import unicodedata
-import random
 import csv
 import unicodedata
 import regex  
@@ -64,7 +61,7 @@ def normalize_arabic(text):
     return text.strip()
 
 def read_languages(lang1, lang2, reverse=False):
-    print("Reading lines...")
+    print("preparing vocab ...")
 
     # Open the CSV file
     with open(translation_data, newline='', encoding='utf-8') as csvfile:
@@ -109,7 +106,6 @@ def prepare_data(lang1, lang2, reverse=False):
     return input_lang, output_lang, pairs
 
 input_lang, output_lang, pairs = prepare_data('english', 'arabic', False)
-# print(random.choice(pairs))
 
 def indexes_from_sentence(lang, sentence):
     return [lang.word2index[word] for word in sentence.split(' ')]
