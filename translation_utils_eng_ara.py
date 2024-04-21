@@ -170,6 +170,7 @@ encoder1.load_state_dict(torch.load(ENCODER_WEIGHT_PATH))
 decoder1.load_state_dict(torch.load(DECODER_WEIGHT_PATH))
 
 def evaluate_specific_sentence_eng_ara(encoder1, decoder1, sentence, input_lang, output_lang):
+    sentence = sentence.replace("'", "").replace('"', '') # removes quotation and spaces
     output_words, _ = evaluate(encoder1, decoder1, sentence, input_lang, output_lang)
     output_sentence = ' '.join(output_words)
     return output_sentence

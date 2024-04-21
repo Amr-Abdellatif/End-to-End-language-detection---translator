@@ -1,6 +1,6 @@
 # Language Detection and Translation
 
-This project includes the development of two API endpoints and the training of three models from scratch for language detection and translation, of course i could've downloaded some pretrained or finetuned already built models but i like building process and the learning that comes with it.
+This project includes the development of two API endpoints and the training of three models from scratch for language detection and translation, of course i could've downloaded some pretrained or finetuned already built models but i the like building process and the learning that comes with it.
 
 
 https://github.com/Amr-Abdellatif/End-to-End-language-detection---translator/assets/92921252/399fbd31-2d4d-41b9-819b-97e3e5c47dd0
