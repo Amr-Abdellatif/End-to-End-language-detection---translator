@@ -1,6 +1,6 @@
 # Language Detection and Translation
 
-This project includes the development of two API endpoints and the training of three models from scratch for language detection and translation, of course i could've downloaded some pretrained or finetuned already built models but i the like building process and the learning that comes with it.
+This project includes the development of two API endpoints and the training of three models from scratch for language detection and translation, of course i could've downloaded some pretrained or finetuned already built models but i like the building process and the learning that comes with it.
 
 
 https://github.com/Amr-Abdellatif/End-to-End-language-detection---translator/assets/92921252/399fbd31-2d4d-41b9-819b-97e3e5c47dd0
@@ -10,17 +10,19 @@ https://github.com/Amr-Abdellatif/End-to-End-language-detection---translator/ass
 ## Usage
 
 1. `pip install -r requirements.txt`
-    ps : if you face a problem with torch probably you need to install the torch from their website according to your device in my case it was the pip with gpu installation 'https://pytorch.org/get-started/locally/'
+    ps : if you face a problem with torch probably you need to install the torch from their website according to your device in my case it was the pip with gpu installation 'https://pytorch.org/get-started/locally/'.
 
-2. Run `main.py` this will run uvicorn server with the endpoints
+2. Run `main.py` this will run uvicorn server with the endpoints.
 
-3. Open browser and navigate to the follwoing localhost for swagger ui `http://127.0.0.1:8080/docs`
+3. Open browser and navigate to the follwoing localhost for swagger ui `http://127.0.0.1:8080/docs`.
 
-4. For language detection model you must send data the model was trained on and must be whole words .. the reason for that is that the vocabulary the model was trained on is what the model saw, anything else it will not recognize
+4. For language detection model you must send data the model was trained on and must be whole words .. the reason for that is that the vocabulary the model was trained on is what the model saw, anything else it will not recognize.
 
-5. for language translation model i'll pass some sentences i trained the model on as i didnt train it on all the pairs
+5. for language translation model i'll pass some sentences i trained the model on as i didnt train it on all the pairs.
 
 6. if you try to pass any words that are not in the vocab of the model it would return key-error, also the two models related to language translation doesn't have the same vocabulary so don't expect for one sentence to be translated on both languages .. again this can be further trained on the whole dataset and results do improve.
+
+7. The models weights are loaded at the running of the `main.py` script. 
 
 ## Test cases for translation model:
 
@@ -63,7 +65,7 @@ The models were trained on word-level data, while character-level models could p
 
 ## Training Details
 
-The language detection model was trained in approximately 3 hours, while the translation models took longer due to the complexity of the task and the use of RNNs with Attention. The translation models were trained on a subset of data with filtered language pairs based on a specific criteria to choose sentences that starts with like "This", "هذه".
+The language detection model was trained in approximately 3 hours, while the translation models took longer due to the complexity of the task and the use of RNNs with Attention. The translation models were trained on a subset of data with filtered language pairs based on a specific criteria to choose sentences that starts with like "This", "هذه" and a maximum number of words in sentences.
 
 The next picture is the normalized confusion matrix from the language detection model training, more details can be found in the training notebooks folder
 ![Alt text](training_notebooks/language_detection/Capture.JPG)
